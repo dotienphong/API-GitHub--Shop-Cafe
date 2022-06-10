@@ -18,14 +18,6 @@ app.use(cors())
 app.use(productRouter)
 app.use(userRouter)
 
-// mongoose.connect(process.env.MONGODB_URI || url, { useUnifiedTopology: true, useNewUrlParser: true })
-//     .then(() => {
-//         console.log('Connected to database')
-//         app.listen(port, () => {
-//             console.log("App is running on port " + port);
-//         });
-//     })
-
 const connectToMongo = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI || url, { useUnifiedTopology: true, useNewUrlParser: true })
