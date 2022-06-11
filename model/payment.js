@@ -19,10 +19,10 @@ const paymentSchema = new mongoose.Schema({
         type: Number
     },
     productNamePayment: {
-        type: String
+        type: Array
     },
     quantityPayment: {
-        type: Number
+        type: Array
     },
 })
 const paymentModel = mongoose.model('payments', paymentSchema)
