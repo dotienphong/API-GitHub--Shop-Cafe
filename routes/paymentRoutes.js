@@ -42,7 +42,7 @@ app.patch("/payment/:id", async (req, res) => {
         await paymentModel.save()
         res.send(payment)
     } catch (err) {
-        res.status(500).send(err)
+        res.status(500).send("Server bị lỗi")
     }
 })
 
