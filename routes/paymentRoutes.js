@@ -35,7 +35,7 @@ app.delete("/payment/:id", async (req, res) => {
     }
 })
 
-UPDATE(sửa)
+// UPDATE(sửa)
 app.patch("/payment/:id", async (req, res) => {
     try {
         const payment = await paymentModel.findByIdAndUpdate(req.params.id, {
