@@ -35,15 +35,15 @@ app.delete("/payment/:id", async (req, res) => {
     }
 })
 
-//UPDATE (sửa)
-// app.patch("/payment/:id", async (req, res) => {
-//     try {
-//         const payment = await paymentModel.findByIdAndUpdate(req.params.id, req.body)
-//         await paymentModel.save()
-//         res.send(payment)
-//     } catch (err) {
-//         res.status(500).send(err)
-//     }
-// })
+// UPDATE(sửa)
+app.patch("/payment/:id", async (req, res) => {
+    try {
+        const payment = await paymentModel.findByIdAndUpdate(req.params.id, req.body)
+        await paymentModel.save()
+        res.send(payment)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 module.exports = app
