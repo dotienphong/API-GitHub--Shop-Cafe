@@ -40,7 +40,7 @@ app.patch("/payment/:id", async (req, res) => {
     try {
         const payment = await paymentModel.findByIdAndUpdate(req.params.id, req.body)
         await paymentModel.save()
-        res.send(payment)
+        res.send()
     } catch (err) {
         res.status(500).send("Server bị lỗi")
     }
