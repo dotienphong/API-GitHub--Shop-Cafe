@@ -35,28 +35,31 @@ app.delete("/payment/:id", async (req, res) => {
     }
 })
 
-// UPDATE(sửa)
-// app.patch("/payment/:id", async (req, res) => {
-//     try {
-//         const payment = await paymentModel.findByIdAndUpdate(req.params.id, req.body)
-//         await paymentModel.save()
-//         res.send(payment)
-//     } catch (err) {
-//         res.status(500).send(err)
-//         console.log("Server Bị Lỗi")
-//     }
-// })
+UPDATE(sửa)
 app.patch("/payment/:id", async (req, res) => {
-    const todo = await paymentModel.findById(req.params.id)
-    if (!todo) return res.status(404).send("payment not found...")
     try {
-        const updatePayment = await paymentModel.findByIdAndUpdate(req.params.id, {
+        const payment = await paymentModel.findByIdAndUpdate(req.params.id, {
             status: true
         })
-        res.send(updatePayment)
-    } catch (err){
+        await paymentModel.save()
+        res.send(payment)
+    } catch (err) {
         res.status(500).send(err)
+        console.log("Server Bị Lỗi")
     }
 })
+
+// app.patch("/payment/:id", async (req, res) => {
+//     const todo = await paymentModel.findById(req.params.id)
+//     if (!todo) return res.status(404).send("payment not found...")
+//     try {
+//         const updatePayment = await paymentModel.findByIdAndUpdate(req.params.id, {
+//             status: true
+//         })
+//         res.send(updatePayment)
+//     } catch (err){
+//         res.status(500).send(err)
+//     }
+// })
 
 module.exports = app
