@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const url = "mongodb+srv://dotienphong1993:Phong186@cluster0.ocjhu.mongodb.net/Shop-Cafe?retryWrites=true&w=majority"
 const productRouter = require('./routes/productRoutes')
 const userRouter = require('./routes/userRoutes')
+const paymentRouter = require('./routes/paymentRoutes')
 const port = process.env.PORT || 3001;
 const app = express()
 
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 app.use(cors())
 app.use(productRouter)
 app.use(userRouter)
+app.use(paymentRouter)
 
 const connectToMongo = async () => {
     try {
