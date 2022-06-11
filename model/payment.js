@@ -24,6 +24,9 @@ const paymentSchema = new mongoose.Schema({
     quantityPayment: {
         type: Array
     },
+    status: {
+        type: Boolean
+    }
 })
 const paymentModel = mongoose.model('payments', paymentSchema)
 module.exports = paymentModel
