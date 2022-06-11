@@ -26,6 +26,9 @@ const paymentSchema = new mongoose.Schema({
     },
     status: {
         type: Boolean
+    },
+    fullTime: {
+        type: String
     }
 })
 const paymentModel = mongoose.model('payments', paymentSchema)
