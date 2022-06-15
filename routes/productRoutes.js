@@ -37,8 +37,11 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 
 //UPDATE (sửa)
 app.patch("/coffeeShop/:id", async (req, res) => {
+    const ID = await productModel.findById(req.params.id)
     try {
-        const product = await productModel.findByIdAndUpdate(req.params.id, console.log(req.body))
+        const product = await productModel.findByIdAndUpdate(req.params.id, {
+            price: ID.price,
+        })
 
         try {
             const result = await productModel.save()
