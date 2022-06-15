@@ -40,7 +40,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
     const ID = await productModel.findById(req.params.id)
     try {
         const product = await productModel.findByIdAndUpdate(req.params.id, {
-            price: req.price,
+            price: req.body.price,
         })
 
         try {
@@ -50,7 +50,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
             console.error("result save() error:", err)
         }
 
-        res.status(200).send(product)
+        res.status(200).send()
     } catch (err) {
         res.status(500).send(err)
     }
