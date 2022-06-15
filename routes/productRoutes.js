@@ -36,33 +36,33 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 })
 
 //UPDATE (sửa)
-// app.patch("/coffeeShop/:id", async (req, res) => {
-//     try {
-//         const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
+app.patch("/coffeeShop/:id", async (req, res) => {
+    try {
+        const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
 
-//         try {
-//             const result = await productModel.save()
-//             console.log("product edit", result)
-//         } catch (err) {
-//             console.error("result save() error:", err)
-//         }
-
-//         res.status(200).send(product)
-//     } catch (err) {
-//         res.status(500).send(err)
-//     }
-// })
-
-app.patch((req, res) => {
-    const content = JSON.stringify(req.body)
-    fs.writeFile(`/coffeeShop/${req.params.id}.json`, content, (err) => {
-        if (err) {
-            console.log(err)
-            res.json({ Error: 'Error while writing content' })
+        try {
+            const result = await productModel.save()
+            console.log("product edit", result)
+        } catch (err) {
+            console.error("result save() error:", err)
         }
-        res.json({ Success: 'Successfully updated' })
-    })
+
+        res.status(200).send(product)
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
+
+// app.patch((req, res) => {
+//     const content = JSON.stringify(req.body)
+//     fs.writeFile(`/coffeeShop/${req.params.id}.json`, content, (err) => {
+//         if (err) {
+//             console.log(err)
+//             res.json({ Error: 'Error while writing content' })
+//         }
+//         res.json({ Success: 'Successfully updated' })
+//     })
+// })
 
 
 module.exports = app
