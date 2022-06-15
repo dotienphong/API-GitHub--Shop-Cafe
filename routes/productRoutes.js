@@ -56,9 +56,9 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 app.patch("/coffeeShop/:id", async (req, res) => {
     console.log(req.body);
     await productModel.findByIdAndUpdate({
-        _id: req.params.id
+        id: req.params.id
     }, {
-        $price: req.body
+        price: req.body
     }).then(() => {
         res.sendStatus({ message: "success" });
     }).catch(err => {
