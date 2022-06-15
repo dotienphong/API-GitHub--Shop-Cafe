@@ -40,7 +40,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
     try {
         const product = await productModel.findByIdAndUpdate(req.params.id,
             {
-                json: {
+                price: {
                     price: req.body.price,
                 }
             }
