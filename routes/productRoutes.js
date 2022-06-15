@@ -45,12 +45,13 @@ app.patch("/coffeeShop/:id", async (req, res) => {
 
         try {
             const result = await productModel.save()
+            console.log(product)
             console.log("product edit", result)
         } catch (err) {
             console.error("result save() error:", err)
         }
 
-        res.status(200).send(req.body.price)
+        res.status(200).send(product)
     } catch (err) {
         res.status(500).send(err)
     }
