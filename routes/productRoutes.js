@@ -46,7 +46,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
         } catch (err) {
             console.error("result save() error:", err)
         }
-        productModel.save()
+        await productModel.save(product)
         res.status(200).send(product)
     } catch (err) {
         res.status(500).send(err)
