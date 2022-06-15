@@ -36,34 +36,22 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 })
 
 //UPDATE (sửa)
-// app.patch("/coffeeShop/:id", async (req, res) => {
-//     try {
-//         const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
-
-//         try {
-//             const result = await productModel.save()
-//             console.log("product edit", result)
-//         } catch (err) {
-//             console.error("result save() error:", err)
-//         }
-
-//         res.status(200).send(product)
-//     } catch (err) {
-//         res.status(500).send(err)
-//     }
-// })
-
 app.patch("/coffeeShop/:id", async (req, res) => {
-    console.log(req.body);
-    await productModel.findByIdAndUpdate({
-        _id: req.params.id
-    }, {
-        price: req.data
-    }).then(() => {
-        res.sendStatus({ message: "success" });
-    }).catch(err => {
-        res.status(500).send(err.message);
-    })
-});
+    try {
+        const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
+
+        try {
+            const result = await productModel.save()
+            console.log("product edit", result)
+        } catch (err) {
+            console.error("result save() error:", err)
+        }
+
+        res.status(200).send(product)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
 
 module.exports = app
