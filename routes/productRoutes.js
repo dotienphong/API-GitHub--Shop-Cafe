@@ -39,7 +39,15 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 app.patch("/coffeeShop/:id", async (req, res) => {
     try {
         const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
-        await productModel.save()
+        // await productModel.save()
+
+        try {
+            const result = await productModel.save();
+            console.log(result); // result
+        } catch (err) {
+            console.error("result save() error:", err);
+        }
+
         res.status(200).send(product)
     } catch (err) {
         res.status(500).send(err)
