@@ -50,7 +50,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
             console.error("result save() error:", err)
         }
 
-        res.status(200).send()
+        res.status(200).send(req.body.price)
     } catch (err) {
         res.status(500).send(err)
     }
