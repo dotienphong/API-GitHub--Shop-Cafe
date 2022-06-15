@@ -37,12 +37,9 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 
 //UPDATE (sửa)
 app.patch("/coffeeShop/:id", async (req, res) => {
-    const ID = await paymentModel.findById(req.params.id)
-    if (!ID) return res.status(404).send("Not found...")
     try {
-        const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
-        await productModel.save()
-        res.status(200).send(product)
+        const updatePayment = await paymentModel.findByIdAndUpdate(req.params.id, req.body)
+        res.send(updatePayment)
     } catch (err) {
         res.status(500).send(err)
     }
