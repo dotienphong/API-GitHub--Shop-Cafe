@@ -35,7 +35,7 @@ app.delete("/payment/:id", async (req, res) => {
     }
 })
 
-// UPDATE(sửa)
+// UPDATE(Check Status - for Shipper)
 app.patch("/payment/:id", async (req, res) => {
     const ID = await paymentModel.findById(req.params.id)
     if (!ID) return res.status(404).send("payment not found...")
