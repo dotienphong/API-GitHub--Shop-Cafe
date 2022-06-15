@@ -39,7 +39,7 @@ app.delete("/coffeeShop/:id", async (req, res) => {
 app.patch("/coffeeShop/:id", async (req, res) => {
     try {
         const product = await productModel.findByIdAndUpdate(req.params.id, {
-            $set: { price: req.body.price }
+            price: { price: req.body.price }
         })
 
         try {
