@@ -43,7 +43,7 @@ app.patch("/payment/:id", async (req, res) => {
         const updatePayment = await paymentModel.findByIdAndUpdate(req.params.id, {
             status: true
         })
-        res.send(updatePayment)
+        res.status(200).send(updatePayment)
     } catch (err) {
         res.status(500).send(err)
     }
