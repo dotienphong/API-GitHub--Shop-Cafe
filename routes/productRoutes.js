@@ -58,7 +58,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
     await productModel.findByIdAndUpdate({
         _id: req.params.id
     }, {
-        price: req.body
+        price: req.data
     }).then(() => {
         res.sendStatus({ message: "success" });
     }).catch(err => {
