@@ -46,23 +46,13 @@ app.patch("/coffeeShop/:id", async (req, res) => {
         } catch (err) {
             console.error("result save() error:", err)
         }
-        await productModel.save(product)
+
         res.status(200).send(product)
     } catch (err) {
         res.status(500).send(err)
     }
 })
 
-// app.patch((req, res) => {
-//     const content = JSON.stringify(req.body)
-//     fs.writeFile(`/coffeeShop/${req.params.id}.json`, content, (err) => {
-//         if (err) {
-//             console.log(err)
-//             res.json({ Error: 'Error while writing content' })
-//         }
-//         res.json({ Success: 'Successfully updated' })
-//     })
-// })
 
 
 module.exports = app
