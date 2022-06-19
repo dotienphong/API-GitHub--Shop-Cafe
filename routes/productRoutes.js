@@ -41,7 +41,7 @@ app.patch("/coffeeShop/:id", async (req, res) => {
         const product = await productModel.findByIdAndUpdate(req.params.id, req.body)
 
         try {
-            const result = await productModel.save()
+            const result = await product.save()
             console.log("product edit", result)
         } catch (err) {
             console.error("result save() error:", err)
@@ -52,6 +52,17 @@ app.patch("/coffeeShop/:id", async (req, res) => {
         res.status(500).send(err)
     }
 })
+
+
+// app.patch('/coffeeShop/:id', async (req, res) => {
+//     try {
+//         const test = await productModel.updateOne({ _id: req.params.id }, { $set: { price: req.body.price } });
+//         res.json(test);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// })
+
 
 
 module.exports = app
