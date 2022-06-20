@@ -35,15 +35,4 @@ app.delete("/users/:id", async (req, res) => {
     }
 })
 
-//UPDATE (sửa)
-// app.patch("/users/:id", async (req, res) => {
-//     try {
-//         const user = await userModel.findByIdAndUpdate(req.params.id, req.body)
-//         await userModel.save()
-//         res.send(user)
-//     } catch (err) {
-//         res.status(500).send(err)
-//     }
-// })
-
 module.exports = app
