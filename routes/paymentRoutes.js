@@ -37,13 +37,10 @@ app.delete("/payment/:id", async (req, res) => {
 
 // UPDATE(Check Status - for Shipper)
 app.patch("/payment/:id", async (req, res) => {
-    const ID = await paymentModel.findById(req.params.id)
-    if (!ID) return res.status(404).send("payment not found...")
     try {
-        const updatePayment = await paymentModel.findByIdAndUpdate(req.params.id, {
-            status: true
-        })
-        res.status(200).send(updatePayment)
+        console.log(req.body.data.status);
+        const payment = await paymentModel.findByIdAndUpdate({ _id: req.params.id }, { status: !req.body.data.status })
+        res.status(200).send(payment)
     } catch (err) {
         res.status(500).send(err)
     }
