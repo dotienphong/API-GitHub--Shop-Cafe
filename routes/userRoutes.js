@@ -1,6 +1,6 @@
 const express = require('express')
-const userModel = require('../model/user')
 const app = express()
+const userModel = require('../model/user')
 
 //GET ALL
 app.get("/users", async (req, res) => {

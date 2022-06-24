@@ -1,13 +1,13 @@
-const bodyParse = require('body-parser')
 const cors = require('cors')
 const express = require('express')
+const app = express()
 const mongoose = require('mongoose')
+const port = process.env.PORT || 3001;
+
 const url = "mongodb+srv://dotienphong1993:Phong186@cluster0.ocjhu.mongodb.net/Shop-Cafe?retryWrites=true&w=majority"
 const productRouter = require('./routes/productRoutes')
 const userRouter = require('./routes/userRoutes')
 const paymentRouter = require('./routes/paymentRoutes')
-const port = process.env.PORT || 3001;
-const app = express()
 
 app.use(express.json())
 

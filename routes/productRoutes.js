@@ -1,6 +1,6 @@
 const express = require('express')
-const productModel = require('../model/product')
 const app = express()
+const productModel = require('../model/product')
 
 //GET ALL
 app.get("/coffeeShop", async (req, res) => {

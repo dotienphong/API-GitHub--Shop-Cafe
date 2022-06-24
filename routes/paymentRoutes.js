@@ -1,6 +1,6 @@
 const express = require('express')
-const paymentModel = require('../model/payment')
 const app = express()
+const paymentModel = require('../model/payment')
 
 //GET ALL
 app.get("/payment", async (req, res) => {
