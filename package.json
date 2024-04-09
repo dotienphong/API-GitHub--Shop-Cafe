@@ -12,8 +12,8 @@
   "description": "API Shop-Cafe",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
-    "start": "node server.js"
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Do Tien Phong",
   "license": "ISC"
